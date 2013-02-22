@@ -1,0 +1,17 @@
+<head>
+	<title>Cool IRC</title>
+</head>
+<body>
+    <p>Enter a user name: <input id="user" type="text" value="" /></p>
+    <p>Enter a channel name: <input id="channel" type="text" value="default" /></p>
+    {{> chatTemplate }}
+</body>
+
+<template name="chatTemplate">
+<div style="border: 1px solid; padding: 10px; overflow-y: scroll; height: 550px">
+    {{#each messages}}<pre>{{userName}}: {{message}}</pre>{{/each}}
+</div>
+<form>
+    <p>Say something:<input id="chatInput" /><input type="submit" value="Say it" /></p>
+</form>
+</template>
