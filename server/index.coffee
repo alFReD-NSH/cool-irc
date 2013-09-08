@@ -8,15 +8,15 @@ Meteor.publish 'channel', (channel, nick) ->
 listen = (channel, nick) ->
     console.log(channel, nick)
     client = clients[nick] = new irc.Client 'chat.freenode.net', nick, {
+        port : 6665
         channels : [channel]
     }
-    client.on 'error', console.log
-    client.on 'message', (from, to, message) ->
+    client.on 'error', console.log.bind(console, 'osdf')
+    client.on 'message', Meteor.bindEnvironment (from, to, message) ->
         console.log(from, to, message)
-        Fiber(->
-            Messages.insert {
-                from,
-                message
-                channel : to,
-            }
-        )
+        Messages.insert {
+            from,
+            message
+            channel : to,
+        }
+    console.log(channel, nick, 'fuck')
