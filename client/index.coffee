@@ -7,4 +7,3 @@ $ ->
     $('#enter').submit( ->
         Meteor.subscribe('channel', $('#channel').val(), $('#user').val())
     )
-            
