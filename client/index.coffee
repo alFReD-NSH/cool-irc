@@ -4,6 +4,7 @@ Template.chatTemplate.messages = ->
     Messages.find()
 
 $ ->
-    $('#enter').submit( ->
+    $('#enter').submit( (e) ->
+        e.preventDefault()
         Meteor.subscribe('channel', $('#channel').val(), $('#user').val())
     )
