@@ -12,7 +12,7 @@
 
 <template name="chatTemplate">
 <div style="border: 1px solid; padding: 10px; overflow-y: scroll; height: 550px">
-    {{#each messages}}<pre>{{userName}}: {{message}}</pre>{{/each}}
+    {{#each messages}}<pre>{{from}}: {{message}}</pre>{{/each}}
 </div>
 <form>
     <p>Say something:<input id="chatInput" /><input type="submit" value="Say it" /></p>
