@@ -17,6 +17,6 @@ listen = (channel, nick) ->
         Messages.insert {
             from,
             message
-            channel : to,
+            channel : to.toLowerCase(),
         }
     console.log(channel, nick, 'fuck')
