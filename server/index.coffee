@@ -3,10 +3,10 @@ irc = Meteor.require 'irc'
 clients = {}
 Meteor.publish 'channel', (channel, nick) ->
     if channel && nick
-        listen channel, nick
+        if !hasOwnProperty.call clients, nick
+            listen channel, nick
         Messages.find(channel : channel)
 listen = (channel, nick) ->
-    console.log(channel, nick)
     client = clients[nick] = new irc.Client 'chat.freenode.net', nick, {
         port : 6665
         channels : [channel]
